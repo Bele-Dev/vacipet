@@ -1,0 +1,285 @@
+/* Estilo geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  header {
+    padding: 5px 4%;
+    background-color: #ffffff;
+    background-size: cover;
+  }
+  header .titulo{
+    margin-top: 160px;
+    margin-bottom: 20px;
+  }
+  header > .interface {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  body {
+    background-color: #b7b4b4;
+  }
+    
+  .interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;justify-content: baseline;
+    gap: 0;
+  }
+    
+  /* .interface h1 {
+    align-items: center;
+    margin-top: 180px;
+  } */
+
+  h1 {
+    color: #000000;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #000;
+    font-size: 38px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  p {
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+  }
+ 
+
+  span {
+    color: #000;
+    font-size: 14px;
+    font-weight: 300;
+    align-items: center;
+  }
+
+  .texto-topo{
+    padding: 20px 4%;
+  }
+
+  .postos-vacina{
+    display: flex;
+    gap: 24px;
+    justify-content: flex-start; /* Alinha os itens ao início */
+    overflow-x: auto; /* Ativa a rolagem horizontal */
+    scroll-snap-type: x mandatory; /* Carrossel de rolagem suave */
+    padding-bottom: 20px; /* Para evitar o corte dos itens ao rolar */
+  }
+
+  .posto {
+    display: flex;
+    align-items: flex-start; /* Alinha os elementos ao topo da div */
+    margin-bottom: 15px; /* Espaçamento inferior entre os itens */
+    min-width: 250px; /* Define uma largura mínima para os itens */
+    scroll-snap-align: start; /* Faz com que o item "encaixe" no início ao parar a rolagem */
+    border: 1px solid #ccc; /* Borda fina em cada item */
+    padding: 8px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: white; /* Fundo branco para destaque */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
+}
+
+.imagem-tag {
+    width: 62px; /* Define o tamanho da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 8px; /* Espaço entre a imagem e o texto */
+    border-radius: 100%;
+}
+
+.info-posto {
+    display: flex;
+    text-align: left;
+    flex-direction: column; /* Faz com que as informações fiquem uma abaixo da outra */
+    justify-content: flex-start;
+    align-items: first baseline;
+}
+
+p, .endereco, .icone-gps {
+    margin: 0; /* Remove margens automáticas */
+    line-height: 1.5; /* Espaçamento entre as linhas */
+}
+
+.icone-gps {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+}
+
+.icone-gps text {
+    margin-left: 4px; /* Espaço entre o ícone e o texto */
+}
+
+.container-fluid {
+  background: linear-gradient(to bottom, #00ad9a 33%, #f0f0f0 100%); /* Gradiente para tornar o terço inferior transparente */
+  padding: 8px; /* Espaçamento interno */
+  overflow: hidden; /* Evita que elementos fiquem fora do container */
+  position: relative;  
+}
+
+
+/* Estilizando o contêiner principal da galeria */
+.galeria-fotos {
+  padding: 40px 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #f0f0f0;
+}
+
+/* Contêiner da grid com tamanho fixo de 600x600 */
+.grid-container {
+  width: 880px;
+  height: 632px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* Cria 12 colunas */
+  grid-template-rows: repeat(12, 1fr);    /* Cria 12 linhas */
+  gap: 5px; /* Espaçamento entre os itens */
+}
+
+/* Estilizando a lista de fotos */
+.lista-fotos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: contents; /* Faz com que os itens usem o grid sem o ul afetar */
+}
+
+/* Configurações gerais para as fotos */
+.foto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Dimensões específicas das fotos na grid */
+.foto-3x4 {
+  grid-column: span 3; /* Ocupar 3 colunas */
+  grid-row: span 4;     /* Ocupar 4 linhas */
+}
+
+.foto-4x4 {
+  grid-column: span 4; /* Ocupar 4 colunas */
+  grid-row: span 4;    /* Ocupar 4 linhas */
+}
+
+.foto-3x6 {
+  grid-column: span 3; /* Ocupar 3 colunas */
+  grid-row: span 6;    /* Ocupar 6 linhas */
+}
+
+.foto-6x3 {
+  grid-column: span 7; /* Ocupar 3 colunas */
+  grid-row: span 4;    /* Ocupar 6 linhas */
+}
+
+/* Faz as imagens se ajustarem ao tamanho da célula */
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem preencher o espaço mantendo sua proporção */
+}
+
+.formulario {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.chamada h2{
+  font-weight: 600;
+  font-size: 24px;
+  color: #00ad9a;
+  margin-bottom: 12px;
+}
+
+.campos-selecao {
+  margin-bottom: 8px;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 4px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.formulario select, .formulario input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center; /* Centraliza o texto dentro do campo */
+}
+
+.formulario button {
+  width: 30%;
+  padding: 10px;
+  background-color: #00ad9a;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #07f039;
+  color: #000;
+}
+
+
+.adocao {
+  background-image: url('imagens/foto8.jpg');
+  background-size: cover;
+  border-radius: 24px;
+  margin-top: 12px;
+  width: 600px;
+  height: 300px;
+  padding: 8px;
+  position: relative;
+}
+
+.adocao h2{
+text-align: center;
+}
+
+.adocao h2,
+.adocao p {
+    position: absolute;
+    left: 8px;   /* Alinha o conteúdo à esquerda, com distância de 8px da borda esquerda */
+    margin: 0;   /* Remove as margens padrão */
+}
+
+
+
+.adocao h2 {
+    font-size: 38px;
+    font-weight: 600;
+    color: #000; /* Ajuste a cor do texto */
+    bottom: 24px; /* Alinha o texto ao fundo com distância de 8px da borda inferior */
+    margin-bottom: 8px; /* Espaço entre o h2 e o p */
+    margin-left: 30px;
+}

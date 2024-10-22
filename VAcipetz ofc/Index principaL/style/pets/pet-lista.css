@@ -1,0 +1,28 @@
+.pet-lista-page .titulo-tela {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.pet-lista-page .pet {
+    text-align: center;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.pet-lista-page .pet:first-child {
+    margin-top: 0;
+}
+
+.pet-lista-page .pet:last-child {
+    margin-bottom: 0;
+}
+
+.pet-lista-page .pet .pet__foto img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.pet-lista-page .pet .pet__nome {
+    margin-top: 10px;
+}

@@ -1,0 +1,40 @@
+/* Utilitários */
+@import url(utilidades/tipografia.css);
+@import url(utilidades/cores.css);
+@import url(utilidades/componentes.css);
+@import url(utilidades/form.css);
+@import url(utilidades/animacao.css);
+
+/* Globais */
+@import url(global/global.css);
+@import url(global/header.css);
+@import url(global/footer.css);
+
+/* Home */
+@import url(home/intro.css);
+@import url(home/mec.css);
+@import url(home/parceiros.css);
+@import url(home/depoimentos.css);
+@import url(home/seguro.css);
+
+/* Termos */
+@import url(termos/termos.css);
+
+/* Fuscas */
+@import url(fuscas/fuscas-lista.css);
+@import url(fuscas/fuscas.css);
+
+/* Seguros */
+@import url(seguros/vantagens.css);
+@import url(seguros/perguntas.css);
+
+/* Fusca Interno */
+@import url(fusca/fusca.css);
+@import url(fusca/seguros.css);
+
+/* Contato */
+@import url(contato/contato.css);
+@import url(contato/lojas.css);
+
+/* Orçamento */
+@import url(orçamento/orcamento.css);

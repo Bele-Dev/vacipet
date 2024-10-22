@@ -1,0 +1,24 @@
+.login-page {}
+
+.login-page .titulo-tela {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.login-page form {
+    margin-bottom: 30px;
+}
+.login-page form input {
+    display: block;
+    margin: 20px 0;
+}
+
+.login-page .btn-logar {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.login-page .lnk-cadastrar {
+    display: block;
+    text-align: center;
+}

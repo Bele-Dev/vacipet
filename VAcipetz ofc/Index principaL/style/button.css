@@ -1,0 +1,12 @@
+button {
+    font-size: var(--texto-font-size);
+}
+
+button {
+    background-color: var(--cor-principal);
+    color: var(--cor-3);
+    border: none;
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 10px 15px;
+}

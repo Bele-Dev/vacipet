@@ -1,0 +1,58 @@
+nav.comp-tabs {
+    display: flex;
+    min-height: 60px;
+    background-color: var(--cor-principal);
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+nav.comp-tabs .tab-item {
+    display: inline-flex;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--cor-2);
+    color: var(--cor-3);
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    position: relative;
+    bottom: 50%;
+    font-size: 30px;
+    cursor: pointer;
+
+    /* Sombra padrão. No futuro utilizar mixin */
+    -webkit-box-shadow: 0px 1px 3px 1px rgb(0 0 0 / 30%);
+    box-shadow: 0px 1px 3px 1px rgb(0 0 0 / 30%);
+}
+
+nav.comp-tab .tab-item {
+    display: inline-flex;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--cor-2);
+    color: var(--cor-3);
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    position: relative;
+    bottom: 50%;
+    font-size: 30px;
+    cursor: pointer;
+
+    /* Sombra padrão. No futuro utilizar mixin */
+    -webkit-box-shadow: 0px 1px 3px 1px rgb(0 0 0 / 30%);
+    box-shadow: 0px 1px 3px 1px rgb(0 0 0 / 30%);
+
+}
+nav.comp-tabs .tab-item.left {
+    left: 0;
+    position: absolute;
+}
+
+nav.comp-tabs .tab-item.right {
+    right: 0;
+    position: absolute;
+}

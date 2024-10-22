@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  height: 100vh;
+  color: var(--cor-texto);
+  font-family: Roboto, sans-serif,Arial;
+  font-size: var(--texto-font-size);
+
+  /* Maior do que tamanho de tablet */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  /* Mobile e Tablet */
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  /* width: 300px;
+  border-radius: 4px;
+  border: 1px solid #ccc; */
+}
+
+.page .tela-container {
+  padding: 30px;
+  flex: 1;
+  overflow: auto;
+}

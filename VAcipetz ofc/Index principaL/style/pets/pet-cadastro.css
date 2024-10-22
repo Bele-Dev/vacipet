@@ -1,0 +1,19 @@
+.pet-cadastro-page {}
+
+.pet-cadastro-page .titulo-tela {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.pet-cadastro-page form {
+    margin-bottom: 30px;
+}
+.pet-cadastro-page form input {
+    display: block;
+    margin: 20px 0;
+}
+
+.pet-cadastro-page .btn-cadastrar {
+    display: block;
+    margin-bottom: 10px;
+}

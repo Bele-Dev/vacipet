@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VACIPETS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<!-- Link do Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+<!-- Link para fontes do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link para fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple">
+    <!-- Link para arquivo CSS externo -->
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .banner {
+            text-align: center;
+            background-color: #ff9932;
+            font-weight: 600;
+            color: #ffffff;
+            padding: 20px;
+            font-family: 'Great Vibes', cursive; /* Graphite font */
+            font-size: 28px;
+            animation: bannerAnimation 1s ease-in-out infinite;
+        }
+        @keyframes bannerAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand img {
+            width: 180px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111111 !important;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9c2b !important;
+        }
+
+        /* Animação ao passar o mouse no link */
+        .navbar-nav .nav-link::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #a7a7a7;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 110%;
+        }
+
+        /* Responsividade para menu mobile */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('https://th.bing.com/th/id/OIP.svBJWBQ6AfxCvUmZgkOj5AHaHa?rs=1&pid=ImgDetMain');
+        }
+
+        
+        .profile-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+        }
+
+        .profile-menu .dropdown-menu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .profile-menu .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .profile-menu:hover .dropdown-menu {
+            display: block;
+        }
+
+        .login__btn {
+            background-color: #f8f9fa;
+            color: #45413E;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .login__btn:hover {
+            background-color: #45413E;
+            color: #f8f9fa;
+        }
+
+        /* Responsividade para menu mobile */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('https://th.bing.com/th/id/OIP.svBJWBQ6AfxCvUmZgkOj5AHaHa?rs=1&pid=ImgDetMain');
+        }
+ /* Adicione essas classes no seu CSS */
+.alerta-cadastro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.alerta-cadastro-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.alerta-cadastro-content h2 {
+    margin-top: 0;
+}
+
+.alerta-cadastro-content a {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alerta-cadastro-content a:hover {
+    background-color: #8e673e;
+}
+.category-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+ .card-large {
+            margin: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+}
+.card-large:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.shop-pets {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 72px;
+            font-size: xx-small;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.5rem;
+}
+.card-large ul {
+            list-style-type: none;
+            padding: 15px;
+}
+.hero h1 {
+            font-family: 'Rancho', cursive;
+            font-size: 4.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ajuste a sombra conforme necessário */
+        }
+    </style>
+</head>
+<body>
+     <!-- Adicione essa div no topo do seu HTML -->
+<div id="alerta-cadastro" class="alerta-cadastro">
+    <div class="alerta-cadastro-content">
+        <h2>Por favor, cadastre-se para continuar!</h2>
+        <p>Para acessar a carteira, você precisa criar uma conta.</p>
+        <a href="#" onclick="abrirLogin()">Cadastrar-se agora!</a>
+    </div>
+</div>
+    <header>
+        <div class="banner col-md-12">
+     Seu pet protegido, você tranquilo!
+       
+        </div>
+        <svg width="0" height="0" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 32H0V21.9849C0 17.1239 4.0116 13.1839 8.96 13.1839H15.2V0.468341C15.2 0.251458 15.3792 0.0754376 15.6 0.0754376C15.7184 0.0754376 15.8308 0.127301 15.9068 0.216883L17.3616 1.92719C18.402 1.07577 19.74 0.563816 21.2 0.563816H22C23.442 0.563816 24.7656 1.06359 25.8 1.89654L27.2932 0.14066C27.3692 0.0514706 27.4812 0 27.6 0C27.8208 0 28 0.175628 28 0.392904V15.3896H23.36C17.528 15.3896 12.8 20.0337 12.8 25.7623V32Z" fill="#45413E" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M29.76 17.0569V12.0875C29.76 12.0836 29.76 12.0797 29.76 12.0758V6.79004C29.76 6.57435 29.9392 6.4 30.16 6.4C30.266 6.4 30.3676 6.44095 30.4424 6.51389L31.9576 7.98784C32.7864 7.42501 33.7936 7.09504 34.88 7.09504C35.97 7.09504 36.9808 7.42735 37.8112 7.99369L39.3176 6.52793C39.3924 6.45499 39.494 6.41404 39.6 6.41404C39.8208 6.41404 40 6.58878 40 6.80408V23.2632C40 28.0883 35.9884 32 31.04 32H14.4V25.7938C14.4 20.969 18.4116 17.0569 23.36 17.0569H29.76Z" fill="#45413E" />
+        </svg>
+
+        <br>
+    </div>
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="vacipets.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre nos.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vaccinei.html">Saiba mais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Carteira de pets/CARDPET.HTML">Carteira</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Localização &amp; Contato</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login_email hidden" id="email">
+                    <div class="email_login">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarEmail()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharEmail()"></i>
+                        </div>
+                        
+                        <h2>Digite seu Email</h2>
+                        <input type="text" id="emailLogin" placeholder="Email">
+                        <input type="text" id="accessCode" placeholder="Senha"> <!-- Novo campo -->
+                        <button class="next_button" onclick="login()">Login</button>
+                      
+                        <p>Não revelaremos seu email a mais ninguém nem o usaremos para enviar spam.</p>
+                    </div>
+                </div>
+                <div class="login_phone hidden" id="phone">
+                    <div class="phone_login">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarTelefone()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharTelefone()"></i>
+                        </div>
+                        <img src="./images/emal__login.svg" alt="">
+                        <h2>Recuperar senha</h2>
+                        <input type="text" id="phoneLogin" placeholder="SENHA">
+                        <button disabled class="next_button" onclick="loginPorTelefone()"> Próximo</button>
+                        <p>Não revelaremos sua senha a mais ninguém nem o usaremos para enviar spam.</p>
+                    </div>
+                </div>
+                <div class="signUp hidden" id="signUp">
+                    <div class="signUp_account">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarCadastro()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharCadastro()"></i>
+                        </div>
+                        <img src="./images/email__login.svg" alt="">
+                        <h2>Crie sua Conta</h2>
+                        <form id="cadastro-form" onsubmit="cadastrarUsuario(event)"></form>
+                        <input type="text" id="name" placeholder="Nome">
+                        <input type="text" id="signEmail" placeholder="Email">
+                        <input type="text" id="signphone" placeholder="Número de Telefone">
+                        <input type="text" id="password" placeholder="Senha">
+                        <input type="text" id="address" placeholder="data de nascimento"> <!-- Novo campo -->
+                        <button class="next_button" id="button" onclick="cadastrar()">Criar uma Conta</button>
+                       
+
+                    </div>
+                </div>
+                <div class="login hidden" id="login">
+                    <div class="login_form">
+                        <i class="fa-solid fa-xmark close__btn" onclick="fecharLogin()"></i>
+                        <img src="vacipets.png" alt="Logo">
+                        <h1>SEJA BEM-VINDO AO VACIPETS</h1>
+                        <h2>A comunidade procura pela saude do seu pet.</h2>
+                        <button href="" class="loginSign_button" onclick="criarPaginaConta()"><img src="./images/googleIcon.svg"
+                                alt=""> Criar sua Conta</button>
+                        <button href="" class="loginSign_button" onclick="loginPorEmail()"><img src="./images/email.svg" alt="">
+                            Continuar com Login</button>
+                        <button href="" class="loginSign_button" onclick="loginPorTelefone()"><img src="./images/email.svg" alt="">
+                            Recuperar Senha</button>
+                        <p>Ao continuar, você aceita os
+                            <b>Termos de uso</b> do Vacipets e a <b>Política de Privacidade</b></p>
+                    </div>
+                </div>
+                <div class="back_to_top hidden" id="top">
+                    <h3><i class="fa-solid fa-angle-up"></i> Voltar ao Topo</h3>
+                </div>
+                <div class="login__sell" id="login__sell"></div>
+                    <button href="" class="login__btn" onclick="abrirLogin()">Login</button>
+                <div class="profile-menu">
+                    <button class="login__btn">Perfil</button>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="openProfile()">Editar Perfil</a>
+                        <a href="#" onclick="openSettings()">Configurações</a>
+                        <a href="#" onclick="logout()">Sair</a>
+                </div>
+                </div>
+                </div>
+                </div>
+            </header>
+        </div>
+    </nav>
+</header>
+
+
+       <section class="hero">
+          <h1>Cuidando da saúde do seu pet com carinho</h1>
+            <div class="btn-group">
+                <a href="Carteira de pets/pet-cadastro.html">
+                <button class="btn-filled-dark">
+                     <span class="material-symbols-outlined">arrow_forward</span>
+                            Criar carteira agora!
+
+    </li>
+</ul>
+
+
+</section>
+<section>
+<h2>Categorias</h2>
+
+<ul class="shop-pets">
+<li class="card-large card-light" id="sup-dog">
+    <div class="card-image"><img src="https://ouch-cdn2.icons8.com/5ccPOQq69UKQcbmXfjvOScfFc9NXKG0Xu6DPNQ8b0f8/rs:fit:368:247/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTEw/LzFlODdiYzcyLTBl/OWEtNDFlNS05N2Ey/LTMzYTA4MDQ5MWU1/OC5wbmc.png"></div>
+    <ul>
+        <h3 class="category-title">Vacinas para Cães</h3>
+        <ul>
+            <li>V8 ou V10</li>
+            <li>Raiva</li>
+            <li>Gripe Canina (Tosse dos Canis)</li>
+            <li>Giárdia</li>
+            <li>Leishmaniose</li>
+        </ul>
+    </li>
+
+        
+       
+    </ul>
+
+<li class="card-large card-dark" id="sup-cat">
+    <div class="card-image"><img src="https://ouch-cdn2.icons8.com/RjiKOF2gGKiIVnIMFi0O1a4aU7DoHfhbkXr2JbUYZ3A/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzEy/LzliNDQ3MmVlLWZh/YjMtNDQwNy1iOWVh/LWMwOTdlYWNjNWE3/NS5wbmc.png"></div>
+    <ul>
+        <h3 class="category-title">Vacinas para Gatos</h3>
+        <ul>
+            <li>V3 ou V4</li>
+            <li>Raiva</li>
+            <li>Leucemia Felina (FeLV)</li>
+            <li>Clamidiose</li>
+        </ul>
+    </li>
+       
+</section>
+
+<section>
+    <h2>Saiba mais!</h2>
+    
+    <ul class="services">
+    <li class="card-large card-dark card-wide" id="serv-groom">
+    
+        <div class="card-image"><img src="calcario.png"></div>
+        <ul>
+            Menor custos veterinarios<span class="subtitle"></span>
+    
+            <li><a href="#">Cuidado da pelagem</a><span></span></li>
+            <li><a href="#">Cuidados com as Unhas</a><span></span></li>
+            <li><a href="#">Alimentação Adequada</a><span></span></li>
+            <li><a href="#">Prevenção de Doenças</a><span></span></li>
+            <li><a href="#">Higiene Bucal</a><span></span></li>
+            <li><a href="#">Vacinação em Dia</a><span></span></li>
+            <li><a href="#">Exercícios Regulares</a><span></span></li>
+            <li><a href="#">Consultas Preventivas</a><span></span></li>
+    
+         
+        
+    
+        </ul>
+    
+    
+    </li>
+    <li class="card-large card-dark card-wide" id="serv-board">
+        <div class="card-image"><img src="vaci.png"></div>
+        <ul>
+            Prevenção de Doenças Graves<span class="subtitle"></span>
+    
+            <li><a href="#">Hospedagem de curta duração</a><span></span></li>
+            <li><a href="#">Check-ups Veterinários Regulares</a><span> </li>
+            <li><a href="#">Vacinação Adequada</a><span></li>
+            <li><a href="#">Exercícios Regulares</a><span></li>
+            <li><a href="#">Higiene Bucal</a><span></li>
+            <li><a href="#">Identificação Rápida de Sintomas</a><span></li>
+     
+             
+                 
+        </ul>
+    
+    </li>
+    </ul>
+    </section>
+    
+
+<section id="locate">
+
+<div>
+<h2>Localização &amp; Clinica</h2>
+<p>Nossa equipe experiente e amigável está sempre pronta para ajudá-lo a fazer as melhores escolhas para seus amigos peludos, emplumados ou aquáticos.</p>
+<div class="btn-group">
+   <a href="contato.html"> <button class="btn-filled-dark"><span class="material-symbols-outlined">
+    pin_drop
+</span>Contato</button></a>
+
+
+<a href="vaccinei.html"> <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+contact_support
+</span>Saiba Mais!</button></a>
+</div>
+</div>
+</section>
+
+<footer>
+
+
+<ul>
+Comprar por tipo de pet
+<li><a href="#">Caẽs</a></li>
+<li><a href="#">Gatos</a></li>
+
+</ul>
+
+
+<ul>
+Nossa empresa
+<li><a href="#">Localização &amp; Clinicas</a></li>
+<li><a href="sobre nos.html"> <h2 id="titulo-section">Sobre a <span id="highlight-cyan">empresa</span></h2></a></li>
+</div>
+</div>
+</ul>
+<ul>
+<!--end footer col-->
+    <!-- footer col-->
+    <div class="footer-col">
+        <h4>Se subescreva!</h4>
+        <div class="form-sub">
+            <form>
+                <input type="email" placeholder="Digite o seu e-mail" required>
+                <button>subscrever</button>
+            </form>
+        </div>
+
+        <div class="medias-socias">
+            <a href="#"> <i class="fa fa-facebook"></i> </a>
+            <a href="https://www.instagram.com/vaci_pet?utm_source=qr&igsh=MTVvdnFoeDl0OXp5cw=="> <i class="fa fa-instagram"></i> </a>
+            <a href="#"> <i class="fa fa-twitter"></i> </a>
+            <a href="#"> <i class="fa fa-linkedin"></i> </a>
+        </div>
+
+    </div>
+</ul>
+<script src="script.js"></script>
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script  src="./script.js"></script>
+ <!-- JavaScript do Bootstrap -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+    <!-- Função para abrir modal de login (exemplo simples) -->
+    <script>
+       function abrirLogin() {
+    alert("Abrir janela de login");
+}
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Adiciona um listener de evento para o scroll
+document.addEventListener("scroll", function() {
+    // Adiciona animação ao banner ao rolar
+    document.querySelector(".banner").classList.add("animated");
+});
+
+// Adiciona um listener de evento para o banner ao passar o mouse
+document.querySelector(".banner").addEventListener("mouseover", function() {
+    // Adiciona animação ao banner ao passar o mouse
+    this.classList.add("animated");
+});
+document.querySelector(".banner").addEventListener("mouseout", function() {
+    // Remove a animação do banner ao tirar o mouse
+    this.classList.remove("animated");
+});
+
+  var dados = JSON.parse(localStorage.getItem("users"));
+    var email = localStorage.getItem("email");
+    var senha = localStorage.getItem("senha");
+    var autenticado = localStorage.getItem("isAuthenticated");
+    var flag = true;
+
+    for (let i = 0; i < dados.length; i++) {
+        if (email == dados[i].email && autenticado === "true") {
+            flag = false;
+            window.location.href = "./sell.html";
+        }
+    }
+    if (flag === true) {
+        document.getElementById("login").classList.remove("hidden");
+    }
+
+
+function paginaPerfil() {
+    window.location.href = "./profile.html";
+}
+
+mostrarDados();
+var dados = JSON.parse(localStorage.getItem("products")) || [];
+dados.map((card, index) => {
+    document.getElementById("cards").innerHTML += `
+        <div onclick="detalheProduto(${index})" class="card">
+            <div class="img__featured">
+                <img src="${card.image}" alt="">
+                <p class="featured">em destaque</p>
+            </div>
+            <div class="card__content">
+                <div class="card__content-gap">
+                    <div class="name__heart">
+                        <h4>${card.name}</h4>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h2>Rs ${card.price}</h2>
+                </div>
+                <h5>${card.location}</h5>
+            </div>
+        </div>
+    `;
+});
+
+function detalheProduto(index) {
+    console.log(dados);
+    localStorage.setItem("productName", dados[index].name);
+    localStorage.setItem("name", dados[index].profileName);
+    localStorage.setItem("description", dados[index].description);
+    localStorage.setItem("image", dados[index].image);
+    localStorage.setItem("price", dados[index].price);
+    localStorage.setItem("location", dados[index].location);
+    localStorage.setItem("phone", dados[index].profilePhone);
+    localStorage.setItem("phoneShow", dados[index].phoneShow);
+    window.location.href = "./productDetails.html";
+}
+
+function abrirLogin() {
+    document.getElementById("login").classList.remove("hidden");
+}
+
+function fecharLogin() {
+    document.getElementById("login").classList.add("hidden");
+}
+
+function loginPorEmail() {
+    document.getElementById("email").classList.remove("hidden");
+    document.getElementById("login").classList.add("hidden");
+}
+
+function fecharEmail() {
+    document.getElementById("email").classList.add("hidden");
+}
+
+function voltarEmail() {
+    document.getElementById("email").classList.add("hidden");
+    document.getElementById("login").classList.remove("hidden");
+}
+
+function loginPorTelefone() {
+    document.getElementById("phone").classList.remove("hidden");
+    document.getElementById("login").classList.add("hidden");
+}
+
+function fecharTelefone() {
+    document.getElementById("phone").classList.add("hidden");
+}
+
+function voltarTelefone() {
+    document.getElementById("phone").classList.add("hidden");
+    document.getElementById("login").classList.remove("hidden");
+}
+
+function criarPaginaConta() {
+    document.getElementById("signUp").classList.remove("hidden");
+    document.getElementById("login").classList.add("hidden");
+}
+
+function fecharCadastro() {
+    document.getElementById("signUp").classList.add("hidden");
+}
+
+function voltarCadastro() {
+    document.getElementById("signUp").classList.add("hidden");
+    document.getElementById("login").classList.remove("hidden");
+}
+
+function cadastrar() {
+    let dados = JSON.parse(localStorage.getItem("users")) || [];
+    let flag = false;
+
+    for (let i = 0; i < dados.length; i++) {
+        if (dados[i].email === document.getElementById("signEmail").value) {
+            flag = true;
+            alert("Você inseriu um endereço de email duplicado");
+        }
+    }
+    if (flag === false) {
+        let usuarios = [];
+        let obj = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("signEmail").value,
+            gender: document.getElementById("gender").value,
+            phone: document.getElementById("signphone").value,
+            isAuthenticated: true
+        };
+        usuarios = JSON.parse(localStorage.getItem("users")) || [];
+        usuarios.push(obj);
+        localStorage.setItem("users", JSON.stringify(usuarios));
+        document.getElementById("signUp").classList.add("hidden");
+        document.getElementById("email").classList.remove("hidden");
+    }
+}
+
+function login() {
+    let email = document.getElementById("emailLogin").value;
+    let usuarios = JSON.parse(localStorage.getItem("users")) || [];
+    var flag = false;
+
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email) {
+            flag = true;
+            alert("Você fez login com sucesso");
+            localStorage.setItem("name", usuarios[i].name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", usuarios[i].phone);
+            localStorage.setItem("gender", usuarios[i].gender);
+            localStorage.setItem("senha", usuarios[i].senha);
+            localStorage.setItem("isAuthenticated", usuarios[i].isAuthenticated);
+            window.location.reload();
+            break;
+        }
+    }
+    if (flag === false) {
+        alert("Por favor, insira um email válido e uma senha");
+    }
+}
+
+function loginPorTelefone() {
+    let telefone = document.getElementById("phoneLogin").value;
+    let usuarios = JSON.parse(localStorage.getItem("users")) || [];
+    var flag = false;
+
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].phone === telefone) {
+            flag = true;
+            alert("Você fez login com sucesso");
+            localStorage.setItem("name", usuarios[i].name);
+            localStorage.setItem("email", usuarios[i].email);
+            localStorage.setItem("phone", usuarios[i].phone);
+            localStorage.setItem("senha", usuarios[i].senha);
+            localStorage.setItem("isAuthenticated", usuarios[i].isAuthenticated);
+            document.getElementById("phone").classList.add("hidden");
+            break;
+        }
+    }
+    if (flag === false) {
+        alert("Por favor, insira um número de telefone válido");
+    }
+}
+
+
+function openProfile() {
+            alert('Página de edição de perfil');
+            // Redirecionar para página de edição de perfil
+        }
+
+        function openSettings() {
+            alert('Página de configurações');
+            // Redirecionar para página de configurações
+        }
+
+        function logout() {
+            localStorage.removeItem('isAuthenticated');
+            alert('Você saiu com sucesso');
+            window.location.href = 'indexx.html'; // Redireciona para página inicial
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (!isAuthenticated) {
+                document.querySelector('.profile-menu').style.display = 'none'; // Esconde menu se não logado
+                document.querySelector('.login__btn').style.display = 'block'; // Mostra botão de login
+            } else {
+                document.querySelector('.profile-menu').style.display = 'block'; // Mostra menu de perfil
+            }
+        });
+
+
+
+        function cadastrar() {
+    let dados = JSON.parse(localStorage.getItem("users")) || [];
+    let flag = false;
+
+    for (let i = 0; i < dados.length; i++) {
+        if (dados[i].email === document.getElementById("signEmail").value) {
+            flag = true;
+            alert("Você inseriu um endereço de email duplicado");
+        }
+    }
+    if (flag === false) {
+        let usuarios = [];
+        let obj = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("signEmail").value,
+            phone: document.getElementById("signphone").value,
+            address: document.getElementById("address").value, // Novo campo
+            isAuthenticated: true
+        };
+        usuarios = JSON.parse(localStorage.getItem("users")) || [];
+        usuarios.push(obj);
+        localStorage.setItem("users", JSON.stringify(usuarios));
+        document.getElementById("signUp").classList.add("hidden");
+        document.getElementById("email").classList.remove("hidden");
+    }
+
+}
+function login() {
+    let email = document.getElementById("emailLogin").value;
+    let accessCode = document.getElementById("accessCode").value; // Novo campo
+    let usuarios = JSON.parse(localStorage.getItem("users")) || [];
+    var flag = false;
+
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email && accessCode === senha) { // Exemplo de código de acesso
+            flag = true;
+            alert("Você fez login com sucesso");
+            localStorage.setItem("name", usuarios[i].name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", usuarios[i].phone);
+            localStorage.setItem("gender", usuarios[i].gender);
+            localStorage.setItem("senha", senha[i].senha)
+            localStorage.setItem("isAuthenticated", usuarios[i].isAuthenticated);
+            window.location.reload();
+            break;
+        }
+    }
+    if (flag === false) {
+        alert("Por favor, insira um email válido e um código de acesso correto");
+    }
+}
+// Adicione essa função no seu JavaScript
+function abrirLogin() {
+    document.getElementById("alerta-cadastro").style.display = "none";
+    document.getElementById("login").classList.remove("hidden");
+}
+
+// Adicione essa linha no seu JavaScript para mostrar a janela de alerta quando o usuário entra no site
+document.addEventListener("DOMContentLoaded", function() {
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+    if (!isAuthenticated) {
+        document.getElementById("alerta-cadastro").style.display = "flex";
+        // Desabilite a carteira
+        document.querySelector(".carteira").style.pointerEvents = "none";
+        document.querySelector(".carteira").style.opacity = "0.5";
+    } else {
+        document.getElementById("alerta-cadastro").style.display = "none";
+    }
+});
+if (isAuthenticated) {
+    window.location.reload();
+}
+
+
+// Cadastro de Conta
+function cadastrarConta() {
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+    var confirmacaoSenha = document.getElementById("confirmacaoSenha").value;
+
+    // Valida os campos
+    if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+        alert("Por favor, preencha todos os campos.");
+        return;
+    }
+
+    // Cria uma senha aleatória
+    var senhaAleatoria = gerarSenhaAleatoria(8);
+
+    // Armazena as informações de conta no banco de dados
+    var usuarios = JSON.parse(localStorage.getItem("users")) || [];
+    var obj = {
+        nome: nome,
+        email: email,
+        senha: senhaAleatoria,
+        isAuthenticated: true
+    };
+    usuarios.push(obj);
+    localStorage.setItem("users", JSON.stringify(usuarios));
+
+    // Redireciona para a página de login
+    window.location.href = "login.html";
+}
+
+// Carteira de Pets
+function adicionarPet() {
+    var nomePet = document.getElementById("nomePet").value;
+    var tipoPet = document.getElementById("tipoPet").value;
+    var idadePet = document.getElementById("idadePet").value;
+    var racaPet = document.getElementById("racaPet").value;
+
+    // Valida os campos
+    if (nomePet == "" || tipoPet == "" || idadePet == "" || racaPet == "") {
+        alert("Por favor, preencha todos os campos.");
+        return;
+    }
+
+    // Armazena as informações de pet no banco de dados
+    var pets = JSON.parse(localStorage.getItem("pets")) || [];
+    var obj = {
+        nome: nomePet,
+        tipo: tipoPet,
+        idade: idadePet,
+        raca: racaPet
+    };
+    pets.push(obj);
+    localStorage.setItem("pets", JSON.stringify(pets));
+
+    // Redireciona para a página de carteira de pets
+    window.location.href = "carteira.html";
+}
+
+// Gera uma senha aleatória
+function gerarSenhaAleatoria(tamanho) {
+    var caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var senha = "";
+    for (var i = 0; i < tamanho; i++) {
+        senha += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    }
+    return senha;
+}
+    </script>
+
+</body>
+</html>

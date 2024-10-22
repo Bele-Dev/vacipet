@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Responsiva</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link para fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para arquivo CSS externo -->
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .banner {
+            text-align: center;
+            background-color: #ff9932;
+            font-weight: 600;
+            color: #ffffff;
+            padding: 20px;
+            font-family: 'Great Vibes', cursive; /* Graphite font */
+            font-size: 28px;
+            animation: bannerAnimation 1s ease-in-out infinite;
+        }
+        @keyframes bannerAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand img {
+            width: 150px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111111 !important;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9c2b !important;
+        }
+
+        /* Animação ao passar o mouse no link */
+        .navbar-nav .nav-link::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #a7a7a7;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Responsividade para menu mobile */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('https://th.bing.com/th/id/OIP.svBJWBQ6AfxCvUmZgkOj5AHaHa?rs=1&pid=ImgDetMain');
+        }
+
+    </style>
+</head>
+<body>
+      
+    <header>
+        <div class="banner col-md-12">
+     Seu pet protegido, você tranquilo!
+       
+        </div>
+       
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="vacipets.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nos.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lembrete/lembra.html">Lembrete</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Carteira de pets/pet-cadastro.html">Carteira</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Localização &amp; Contato</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login_email hidden" id="email">
+                    <div class="email_login">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarEmail()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharEmail()"></i>
+                        </div>
+                        <img src="./images/emal__login.svg" alt="">
+                        <h2>Digite seu Email</h2>
+                        <input type="text" id="emailLogin" placeholder="Email">
+                        <button class="next_button" onclick="login()">Login</button>
+                        <p>Não revelaremos seu email a mais ninguém nem o usaremos para enviar spam.</p>
+                    </div>
+                </div>
+                <div class="login_phone hidden" id="phone">
+                    <div class="phone_login">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarTelefone()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharTelefone()"></i>
+                        </div>
+                        <img src="./images/email__login.svg" alt="">
+                        <h2>Digite seu telefone</h2>
+                        <input type="text" id="phoneLogin" placeholder="Número de Telefone">
+                        <button disabled class="next_button" onclick="loginPorTelefone()"> Próximo</button>
+                        <p>Não revelaremos seu número de telefone a mais ninguém nem o usaremos para enviar spam.</p>
+                    </div>
+                </div>
+                <div class="signUp hidden" id="signUp">
+                    <div class="signUp_account">
+                        <div class="icons_flex">
+                            <i class="fa-solid fa-arrow-left" onclick="voltarCadastro()"></i>
+                            <i class="fa-solid fa-xmark close__btn" onclick="fecharCadastro()"></i>
+                        </div>
+                        <img src="./images/email__login.svg" alt="">
+                        <h2>Crie sua Conta</h2>
+                        <input type="text" id="name" placeholder="Nome">
+                        <input type="text" id="signEmail" placeholder="Email">
+                        <input type="text" id="signphone" placeholder="Número de Telefone">
+                        <input type="text" id="gender" placeholder="Gênero">
+                        <button class="next_button" id="button" onclick="cadastrar()">Criar uma Conta</button>
+                        <p>Não revelaremos seu número de telefone a mais ninguém nem o usaremos para enviar spam.</p>
+                    </div>
+                </div>
+                <div class="login hidden" id="login">
+                    <div class="login_form">
+                        <i class="fa-solid fa-xmark close__btn" onclick="fecharLogin()"></i>
+                        <img src="./images/logo.svg" alt="">
+                        <h1>SEJA BEM-VINDO AO OLX</h1>
+                        <h2>A comunidade confiável de compradores e vendedores.</h2>
+                        <button href="" class="loginSign_button"><img src="./images/facebok.svg" alt=""> Continuar com
+                            Facebook</button>
+                        <button href="" class="loginSign_button" onclick="criarPaginaConta()"><img src="./images/googleIcon.svg"
+                                alt=""> Criar sua Conta</button>
+                        <button href="" class="loginSign_button" onclick="loginPorEmail()"><img src="./images/email.svg" alt="">
+                            Continuar com Email</button>
+                        <button href="" class="loginSign_button" onclick="loginPorTelefone()"><img src="./images/phone.svg" alt="">
+                            Continuar com Telefone</button>
+                        <p>Ao continuar, você aceita os
+                            <b>Termos de uso</b> do OLX e a <b>Política de Privacidade</b></p>
+                    </div>
+                </div>
+                <div class="back_to_top hidden" id="top">
+                    <h3><i class="fa-solid fa-angle-up"></i> Voltar ao Topo</h3>
+                </div>
+                
+                <div class="login__sell" id="login__sell">
+                    <button href="" class="login__btn" onclick="abrirLogin()">Login</button>
+                    <button onclick="vender()" class="sell__btn">+ Vender</button>
+                </div>
+                </div>
+                </div>
+                <div class="profile_container">
+                    <div class="container">
+                        <div class="input">
+                            <label for="name">Nome</label>
+                            <input type="text" id="nameL">
+                        </div>
+                        <div class="input">
+                            <label for="emailL">Email</label>
+                            <input type="text" id="emailL">
+                        </div>
+                        <div class="input">
+                            <label for="phonel">Telefone</label>
+                            <input type="text" id="phonel">
+                        </div>
+                        <div class="input">
+                            <label for="gender">Gênero</label>
+                            <input type="text" id="genderL">
+                        </div>
+                        <div class="btns">
+                            <button class="btn">Editar Perfil</button>
+                            <button class="btn" onclick="sair()">Sair</button>
+                        </div>
+                    </div>
+                </div>
+    </header>
+<script src="script.js"></script>
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sair() {
+            localStorage.removeItem("nome");
+            localStorage.removeItem("email");
+            localStorage.removeItem("telefone");
+            localStorage.removeItem("genero");
+            window.location.href = "./index.html";
+        }
+    
+        document.getElementById("nomeL").value = localStorage.getItem("nome");
+        document.getElementById("emailL").value = localStorage.getItem("email");
+        document.getElementById("telefoneL").value = localStorage.getItem("telefone");
+        document.getElementById("generoL").value = localStorage.getItem("genero");
+    
+        function mostrarDados() {
+            var dados = JSON.parse(localStorage.getItem("usuarios"));
+            var email = localStorage.getItem("email");
+            var estaAutenticado = localStorage.getItem("estaAutenticado");
+    
+            for (let i = 0; i < dados.length; i++) {
+                if (email == dados[i].email && estaAutenticado === "true") {
+                    document.getElementById("login__venda").innerHTML = `
+                        <img class="avatar" onclick="paginaPerfil()" width="60px" src="./images/avatar.png" />
+                        <button onclick="vender()" class="venda__btn">+ Vender</button>
+                    `;
+                }
+            }
+        }
+    
+        function vender() {
+            var dados = JSON.parse(localStorage.getItem("usuarios"));
+            var email = localStorage.getItem("email");
+            var estaAutenticado = localStorage.getItem("estaAutenticado");
+            var flag = true;
+    
+            for (let i = 0; i < dados.length; i++) {
+                if (email == dados[i].email && estaAutenticado === "true") {
+                    flag = false;
+                    window.location.href = "./vender.html";
+                }
+            }
+    
+            if (flag === true) {
+                document.getElementById("login").classList.remove("oculto");
+            }
+        }
+    
+        function paginaPerfil() {
+            window.location.href = "./perfil.html";
+        }
+    
+        mostrarDados();
+        var dadosProdutos = JSON.parse(localStorage.getItem("produtos"));
+    
+        function abrirLogin() {
+            document.getElementById("login").classList.remove("oculto");
+        }
+    
+        function fecharLogin() {
+            document.getElementById("login").classList.add("oculto");
+        }
+    
+        function loginEmail() {
+            document.getElementById("email").classList.remove("oculto");
+            document.getElementById("login").classList.add("oculto");
+        }
+    
+        function fecharEmail() {
+            document.getElementById("email").classList.add("oculto");
+        }
+    
+        function voltarEmail() {
+            document.getElementById("email").classList.add("oculto");
+            document.getElementById("login").classList.remove("oculto");
+        }
+    
+        function loginTelefone() {
+            document.getElementById("telefone").classList.remove("oculto");
+            document.getElementById("login").classList.add("oculto");
+        }
+    
+        function fecharTelefone() {
+            document.getElementById("telefone").classList.add("oculto");
+        }
+    
+        function voltarTelefone() {
+            document.getElementById("telefone").classList.add("oculto");
+            document.getElementById("login").classList.remove("oculto");
+        }
+    
+        function paginaCriarConta() {
+            document.getElementById("cadastro").classList.remove("oculto");
+            document.getElementById("login").classList.add("oculto");
+        }
+    
+        function fecharCadastro() {
+            document.getElementById("cadastro").classList.add("oculto");
+        }
+    
+        function voltarCadastro() {
+            document.getElementById("cadastro").classList.add("oculto");
+            document.getElementById("login").classList.remove("oculto");
+        }
+    
+        function criarConta() {
+            let dados = JSON.parse(localStorage.getItem("usuarios")) ? JSON.parse(localStorage.getItem("usuarios")) : [];
+            let flag = false;
+    
+            for (let i = 0; i < dados.length; i++) {
+                if (dados[i].email === document.getElementById("emailCadastro").value) {
+                    flag = true;
+                    alert("Você inseriu um endereço de email duplicado");
+                }
+            }
+    
+            if (flag === false) {
+                let usuarios = [];
+                let obj = {
+                    nome: document.getElementById("nome").value,
+                    email: document.getElementById("emailCadastro").value,
+                    genero: document.getElementById("genero").value,
+                    telefone: document.getElementById("telefoneCadastro").value,
+                    estaAutenticado: true
+                };
+                usuarios = JSON.parse(localStorage.getItem("usuarios")) ? JSON.parse(localStorage.getItem("usuarios")) : [];
+                usuarios.push(obj);
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
+                document.getElementById("cadastro").classList.add("oculto");
+                document.getElementById("email").classList.remove("oculto");
+            }
+        }
+    
+        function login() {
+            let email = document.getElementById("emailLogin").value;
+            let usuarios = JSON.parse(localStorage.getItem("usuarios"));
+            var flag = false;
+    
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].email === email) {
+                    flag = true;
+                    alert("Você fez login com sucesso");
+                    localStorage.setItem("nome", usuarios[i].nome);
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("telefone", usuarios[i].telefone);
+                    localStorage.setItem("estaAutenticado", usuarios[i].estaAutenticado);
+                    window.location.reload();
+                }
+            }
+    
+            if (flag == false) {
+                alert("Por favor, insira um email e senha válidos");
+            }
+        }
+    
+        function loginTelefone() {
+            let telefone = document.getElementById("telefoneLogin").value;
+            let usuarios = JSON.parse(localStorage.getItem("usuarios"));
+            var flag = false;
+    
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].telefone === telefone) {
+                    flag = true;
+                    alert("Você fez login com sucesso");
+                    localStorage.setItem("nome", usuarios[i].nome);
+                    localStorage.setItem("email", usuarios[i].email);
+                    localStorage.setItem("telefone", usuarios[i].telefone);
+                    localStorage.setItem("estaAutenticado", usuarios[i].estaAutenticado);
+                    document.getElementById("telefone").classList.add("oculto");
+                }
+            }
+    
+            if (flag == false) {
+                alert("Por favor, insira um email e senha válidos");
+            }
+        }
+    </script>
+    

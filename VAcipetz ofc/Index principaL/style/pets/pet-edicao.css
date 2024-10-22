@@ -1,0 +1,19 @@
+.pet-edicao-page {}
+
+.pet-edicao-page .titulo-tela {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.pet-edicao-page form {
+    margin-bottom: 30px;
+}
+.pet-edicao-page form input {
+    display: block;
+    margin: 20px 0;
+}
+
+.pet-edicao-page .btn-salvar {
+    display: block;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <!-- HTML base -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="stiling/styling.css">
+
+    <!-- título da pág e icone (logo) -->
+    <title>Vacipet- sobre nos</title>
+    <link rel="icon" href="sauude.png">
+
+    <!--script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e08c13fee8.js" crossorigin="anonymous"></script>
+    <!-- Link do Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+<!-- Link para fontes do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+ <!-- Link para arquivo CSS externo -->
+ <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .banner {
+        text-align: center;
+        background-color: #ff8b32;
+        font-weight: 600;
+        color: #ffffff;
+        padding: 20px;
+        font-family: 'Great Vibes', cursive; /* Graphite font */
+        font-size: 28px;
+        animation: bannerAnimation 1s ease-in-out infinite;
+        
+    }
+    @keyframes bannerAnimation {
+0% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
+100% {
+transform: translateY(0);
+}
+}
+    /* Navbar Styling */
+    .navbar {
+        background-color: #ffffff;
+        
+    }
+
+    .navbar-brand img {
+        width: 150px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111111 !important;
+        margin-right: 15px;
+        position: relative;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #ff9c2b !important;
+    }
+
+    /* Animação ao passar o mouse no link */
+    .navbar-nav .nav-link::after {
+        content: '';
+        width: 0;
+        height: 3px;
+        background-color: #a7a7a7;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Responsividade para menu mobile */
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('https://th.bing.com/th/id/OIP.svBJWBQ6AfxCvUmZgkOj5AHaHa?rs=1&pid=ImgDetMain');
+    }
+
+    .login__btn {
+        background-color: #f8f9fa;
+        color: #45413E;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .login__btn:hover {
+        background-color: #45413E;
+        color: #f8f9fa;
+    }
+    /* Estilo Global */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsividade da Navbar */
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
+    .navbar-collapse {
+        text-align: center;
+    }
+    .navbar-nav {
+        flex-direction: column;
+    }
+}
+
+/* Ajuste do Banner */
+.banner {
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        font-size: 1.2rem;
+    }
+}
+
+/* Seção Sobre Nós */
+.section-sobre {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-sobre .text-sobre {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Cards de Visão, Missão, Valores */
+.identity-orion {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.id-orion {
+    flex: 1 1 300px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+
+.id-orion img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .id-orion {
+        flex: 1 1 100%;
+    }
+}
+
+/* Seção de Equipe */
+.equipe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.integrantes {
+    text-align: center;
+    flex: 1 1 200px;
+}
+
+.integrantes img {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer-menu, .footer-social {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-links ul {
+    padding: 0;
+}
+
+.footer-list-item {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.footer-icons a {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-menu, .footer-social {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Ajustes gerais */
+.container-content, .container-servicos, .container-equipe, .container-footer {
+    padding: 0 20px;
+}
+
+.header-content {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.text-content h1 {
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .text-content h1 {
+        font-size: 1.5rem;
+    }
+}
+
+</style>
+
+
+<body>
+    <div class="banner col-md-12">
+        Seu pet protegido, você tranquilo!
+          
+           </div>
+          
+           
+           <!-- Navbar -->
+           <nav class="navbar navbar-expand-lg navbar-dark">
+               <div class="container">
+                   <a class="navbar-brand" href="#">
+                       <img src="vacipets.png" alt="Logo">
+                   </a>
+                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                   </button>
+                   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                       <ul class="navbar-nav">
+                           <li class="nav-item">
+                               <a class="nav-link" href="indexx.html.HTML">Inicio</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="lembrete/lembra.html">Lembrete</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="Carteira de pets/CARDPET.HTML">Carteira</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="contato.html">Localização &amp; Contato</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="d-flex">
+                       <button class="login__btn" onclick="openLogin()">Login</button>
+                   </div>
+               </div>
+           </nav>
+    <header id="home">     
+        <!-- navbar --> 
+        
+
+        <div class="header-content anim-class">
+            <div class="main-content">
+               
+                
+                <!-- headings -->
+                <div class="text-content">
+                    <h1 id="heading">Uma referência na <span id="highlight-purple">saúde</span> dos seus pets, assim como 
+                        na <span id="highlight-purple">proteção</span> de quem você ama!</h1>
+                    <p class="sub-heading">Vacipet: Especializada em vacinas inovadoras para cães e gatos, garantindo o bem-estar e a saúde.</p>
+                  
+                </div>
+            </div>
+        </div>
+    </header>
+
+        
+    <!-- main div -->
+    <main class="container-content">
+        <!-- sobre nós -->
+       <!-- sobre nós -->
+<section class="section-sobre" id="sobre">
+    <h2 id="titulo-section">Sobre a <span id="highlight-cyan">empresa</span></h2>
+    <div class="line mx-auto"></div>
+    <p class="text-sobre">
+        A <span id="highlight-cyan"> Vacipet</span> é uma empresa comprometida com a saúde e bem-estar dos seus pets. Influenciamos a vacinação de alta qualidade para cães e gatos, garantindo que seu companheiro esteja sempre protegido contra as principais doenças. Manter a saúde do seu pet é nossa prioridade, porque acreditamos que eles merecem o melhor cuidado, para viverem longas e felizes vidas ao seu lado.
+    </p>
+
+    <h3 class="slogan">"Vacipet - Protegendo seu melhor amigo, para que cada dia seja cheio de alegria e saúde!"</h3>
+</section>
+
+            </p>
+            <!-- quadradinhos de proposito da empresa -->
+            <div class="identity-orion">
+                <div class="id-orion">
+                    <img class="id-img" src="dogue.png" alt="Imagem de um foguete decolando de um notebook" width="144px">
+                    <h1 class="id-title">Visão</h1>
+                    <h3 class="id-text">Ser uma referência em tecnologia para a saúde e bem-estar de pets, proporcionando soluções inovadoras e acessíveis para o cuidado responsável dos animais.</h3>
+                </div>
+                <div class="id-orion">
+                    <img class="id-img" src="carvaleiro.png" alt="Imagem de um foguete decolando de um notebook">
+                    <h1 class="id-title">Missão</h1>
+                    <h3 class="id-text">Facilitar o acompanhamento da saúde dos pets através de uma carteira de vacinação digital, conectando donos e profissionais veterinários com eficiência e praticidade.</h3>
+                </div>
+                <div class="id-orion">
+                    <img id="id-img" src="medco.png" alt="Imagem de um foguete decolando de um notebook"width>
+                    <h1 class="id-title">Valores</h1>
+                    <h3 class="id-text">Compromisso com a saúde dos pets;<br> Ética e transparência;<br> Inovação contínua para o bem-estar animal.</h3>
+                </div>
+
+            </div> 
+        </section>
+
+        <!-- nossos serviços -->
+        <section class="section-servicos" id="servicos">
+            <div class="container-servicos">
+                <h1 id="titulo-section">Nossos <span id="highlight-cyan">serviços</span></h1>
+                <div class="line mx-auto"></div>
+                <p class="text-sobre">
+                    Desenvolvemos aplicações para as plataformas abaixo.
+                </p>
+
+                <!-- aplications images -->
+                <div class="aplic-class">
+                    <div class="web-img">
+                        <img src="bele e clara.png" alt="Ilustração de duas pessoas programando uma aplicação web" style="margin-bottom: 20px;">
+                        <p class="text-aplic">Aplicação Web </p>
+                    </div>
+                    
+                    <div class="mobile-img">
+                        <img src="carvao.png" alt="Ilustração de uma pessoa programando uma aplicação mobile">
+                        <p class="text-aplic">Aplicação Responsiva</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+               <!-- nossa equipe-->
+        <section class="section-equipe" id="equipe">
+            <div class="container-equipe">
+                <h1 id="titulo-section">Nossa <span id="highlight-cyan">equipe</span></h1>
+                <div class="line mx-auto"></div>
+
+                <!-- div equipe -->
+           
+                <div class="equipe">
+                <div class="integrantes">
+                    <img id="int-img" src="fredvieira.jpeg" alt="Menina de cabelo castanho claro de óculos, com um piercing na sobrancelha">
+                    <h3 class="int-name">Thiago Cesar Vieira</h3>
+                    <h4 class="int-function">Desenvolvedora Front-End e UI/UX Designer</h4>
+                
+                <div class="social-icons">
+                    <a id="social-link" href="" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                    <a id="social-link" href="https://www.linkedin.com/in/marina-oliveira-7653041b8/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                    <a id="social-link" href="https://github.com/m-arina" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                </div>
+            </div>
+                <div class="integrantes">
+                    <img id="int-img" src="gelica.jpeg" alt="Menina de cabelo castanho claro de óculos, com um piercing na sobrancelha">
+                    <h3 class="int-name">Isabele Freitas</h3>
+                    <h4 class="int-function">Desenvolvedora Front-End e UI/UX Designer</h4>
+            
+                <div class="social-icons">
+                    <a id="social-link" href="https://www.instagram.com/_belef_?igsh=MXYwazVjYmUxZnBvdw==" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                    <a id="social-link" href="https://www.linkedin.com/in/marina-oliveira-7653041b8/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                    <a id="social-link" href="https://github.com/m-arina" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                </div>
+            </div>
+            
+                <div class="integrantes">
+                    <img id="int-img" src="tereza.jpeg" alt="">
+                    <h3 class="int-name">Maria Clara Carnielli</h3>
+                    <h4 class="int-function">Desenvolvedor Full-Stack e Analista</h4>
+            
+                <div class="social-icons">
+                    <a id="social-link" href="https://www.instagram.com/eiclara._?igsh=MTF5ZWp2Y3V4MTJlOA==_" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                    <a id="social-link" href="https://www.linkedin.com/in/leandro-coelho-2942a9220/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                    <a id="social-link" href="https://github.com/lean-dro" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                </div>
+            </div>
+            
+                <div class="integrantes">
+                    <img id="int-img" src="betinho.jpeg" alt="">
+                    <h3 class="int-name">Madu Santos de Assis</h3>
+                    <h4 class="int-function">Desenvolvedor Back-End </h4>
+            
+                <div class="social-icons">
+                    <a id="social-link" href="https://www.instagram.com/llizoca_xz?igsh=cjcyOWJqODkwNHl6" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                    <a id="social-link" href="https://www.linkedin.com/in/marina-oliveira-7653041b8/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                    <a id="social-link" href="https://github.com/KauanMO" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                </div>
+            </div>
+                <div class="integrantes">
+                    <img id="int-img" src="hana.jpeg" alt="Imagem de um foguete decolando de um notebook">
+                    <h3 class="int-name">Stefany Menon</h3>
+                    <h4 class="int-function">Desenvolvedora Front-End e Documentação</h4>
+            
+
+                    <div class="social-icons">
+                        <a id="social-link" href="https://www.instagram.com/stefany_b_m_?igsh=MTVjMGhxNDMwa2lrMw==_" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                        <a id="social-link" href="https://www.linkedin.com/in/camila-martins-695671218/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a id="social-link" href="https://github.com/ca-mila" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="equipe">
+                <div class="integrantes">
+                    <img id="int-img" src="Hanna.jpeg" alt="Imagem de um foguete decolando de um notebook">
+                    <h3 class="int-name">Maria Eduarda Leitao</h3>
+                    <h4 class="int-function">Desenvolvedora Front-End e Documentação</h4>
+
+                    <div class="social-icons">
+                        <a id="social-link" href="https://instagram.com/gislainecoutinho5808" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                        <a id="social-link" href="https://www.linkedin.com/in/gislaine-coutinho-a47589249/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a id="social-link" href="https://github.com/Gislaine09" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                    </div>
+                </div>
+                <div class="integrantes">
+                    <img id="int-img" src="cleiton.jpeg" alt="Imagem de um foguete decolando de um notebook">
+                    <h3 class="int-name">Leonardo Sanches</h3>
+                    <h4 class="int-function">Analista e Documentação</h4>
+
+                    <div class="social-icons">
+                        <a id="social-link" href="https://www.instagram.com/leo.sanchss_?igsh=bGc4azl6bTl6anNj" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                        <a id="social-link" href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a id="social-link" href="#" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                    </div>
+                </div>
+                <div class="integrantes">
+                    <img id="int-img" src="mel.jpeg" alt="Imagem de um foguete decolando de um notebook">
+                    <h3 class="int-name">Laura Pizetta</h3>
+                    <h4 class="int-function">Desenvolvedor Back-End e Tester</h4>
+
+                    <div class="social-icons">
+                        <a id="social-link" href="https://instagram.com/ target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                        <a id="social-link" href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a id="social-link" href="https://github.com/Jrique" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                    </div>
+                </div>
+                <div class="integrantes">
+                    <img id="int-img" src="shake.jpeg" alt="Imagem de um foguete decolando de um notebook">
+                    <h3 class="int-name">Mateus Mariotti</h3>
+                    <h4 class="int-function">Analista e Documentação</h4>
+
+                    <div class="social-icons">
+                        <a id="social-link" href="https://www.instagram.com/mateuss13__?igsh=ajI1d2dwajExemxi" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                        <a id="social-link" href="https://www.linkedin.com/in/damaris-kamada-51384b205/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a id="social-link" href="https://github.com/damarisKamada" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+                    </div>
+                </div>
+                    
+                </div> <!-- final da div equipe -->
+            </div>
+        </section>
+
+        <!-- contato -->
+        
+
+    <!-- footer -->
+    <footer class="container-footer">
+        <div class="footer-logo">
+            <img src="vacipets.png">
+            <p id="copyright">Vacipets 2024</p>
+        </div>
+        <div class="footer-menu">
+            <div class="footer-links">
+                <h4>Home</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#sobre">Sobre</a></li>
+                    <li class="footer-list-item"><a href="#servicos">Serviços</a></li>
+                    <li class="footer-list-item"><a href="#equipe">Equipe</a></li>
+                    <li class="footer-list-item"><a href="#projetos">Projetos</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Suporte</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#">Chat</a></li>
+                    <li class="footer-list-item"><a href="#">FAQ</a></li>
+                    <li class="footer-list-item"><a href="#">Telefone</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Localização</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#">R. santa city, 290</a></li>
+                    <li class="footer-list-item">Guaianases - São Paulo, SP</li>
+                    <li class="footer-list-item"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <h4>Siga nossas redes sociais!</h4>
+            <div class="footer-icons">
+                <a href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                <a href="#"><i class="fa-brands fa-github fa-2xl"></i></a>
+            </div>
+            <p>Ou envie um email para nós</p>
+            <p>orion.etec@email.com</p>
+        </div>
+        
+    </footer>
+
+    <script src="stiling/js/scriptt.js"></script>
+</body>
+
+</html>

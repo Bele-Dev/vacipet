@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Pet e Carteira de Vacinação</title>
+
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link para fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            text-align: center;
+            background-color: #ff9932;
+            font-weight: 600;
+            color: #ffffff;
+            padding: 20px;
+            font-size: 28px;
+            animation: bannerAnimation 1s ease-in-out infinite;
+        }
+
+        @keyframes bannerAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand img {
+            width: 150px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111111 !important;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9c2b !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #a7a7a7;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Menu Lateral */
+        #sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(69, 65, 62, 0.5); /* Transparente */
+            color: white;
+            transition: 0.3s;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        #sidebar.active {
+            left: 0;
+        }
+
+        #sidebar ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        #sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        #sidebar ul li a:hover {
+            background-color: #495057;
+        }
+
+        .open-menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ff9932;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Perfil do Pet e Carteira de Vacinação */
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            margin: 20px auto;
+            width: 90%;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 90%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .table-container {
+            margin-top: 30px;
+        }
+
+        /* Formulário de cadastro de vacina */
+        #vaccinationForm {
+            display: none;
+            margin-top: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+                left: -100%;
+            }
+            #sidebar.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            Seu pet protegido, você tranquilo!
+        </div>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="vacipets.png" alt="Logo">
+                </a>
+                <!-- Botão para mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Conteúdo da Navbar -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <!-- Seus itens de navegação aqui -->
+                    </ul>
+                    <!-- Botão "Voltar" -->
+                    <button class="btn btn-primary" onclick="history.back();">Voltar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Botão para abrir o menu -->
+    <button class="open-menu-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <!-- Menu lateral animado -->
+    <div id="sidebar">
+        <ul>
+            <li><a href="#" onclick="toggleVaccinationForm()">Cadastrar Vacina</a></li>
+            <li><a href="#">Meus Pets</a></li>
+        </ul>
+    </div>
+
+    <!-- Perfil do Pet e Carteira de Vacinação -->
+    <div class="container">
+        <div class="row">
+            <!-- Perfil do Pet -->
+            <div class="col-md-6">
+                <div class="card" id="petProfile">
+                    <img src="" alt="Imagem do Pet" id="petImage">
+                    <div class="card-body">
+                        <h5 class="card-title" id="petName"></h5>
+                        <p class="card-text" id="petBreed"></p>
+                        <p class="card-text" id="petAge"></p>
+                        <p class="card-text" id="petGender"></p>
+                        <p class="card-text" id="petHistory"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Carteira de Vacinação -->
+            <div class="col-md-6">
+                <div class="table-container">
+                    <h3>Carteira de Vacinação</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vacina</th>
+                                <th>Data</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vaccinationTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulário de cadastro de vacina -->
+    <div id="vaccinationForm">
+        <h4>Cadastrar Nova Vacina</h4>
+        <form id="newVaccineForm">
+            <div class="mb-3">
+                <label for="vaccineName" class="form-label">Nome da Vacina</label>
+                <input type="text" class="form-control" id="vaccineName" required>
+            </div>
+            <div class="mb-3">
+                <label for="vaccineDate" class="form-label">Data</label>
+                <input type="date" class="form-control" id="vaccineDate" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Função para alternar o menu lateral
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+
+        // Função para alternar o formulário de cadastro de vacina
+        function toggleVaccinationForm() {
+            const form = document.getElementById("vaccinationForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        // Carregar o perfil do pet selecionado
+        window.onload = function () {
+            const selectedPet = JSON.parse(localStorage.getItem("selectedPet"));
+            if (selectedPet) {
+                document.getElementById("petImage").src = selectedPet.petImage;
+                document.getElementById("petName").textContent = selectedPet.petName;
+                document.getElementById("petBreed").textContent = "Raça: " + selectedPet.petBreed;
+                document.getElementById("petAge").textContent = "Idade: " + selectedPet.petAge;
+                document.getElementById("petGender").textContent = "Sexo: " + selectedPet.petGender;
+                document.getElementById("petHistory").textContent = "Histórico Médico: " + selectedPet.petHistory;
+            }
+            loadVaccinationTable();
+        };
+
+        // Função para carregar as vacinas cadastradas
+        function loadVaccinationTable() {
+            const vaccines = JSON.parse(localStorage.getItem("vaccines")) || [];
+            const table = document.getElementById("vaccinationTable");
+            table.innerHTML = "";
+
+            vaccines.forEach((vaccine, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${vaccine.name}</td>
+                    <td>${vaccine.date}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editVaccine(${index})">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteVaccine(${index})">Excluir</button>
+                    </td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        // Função para cadastrar vacina
+        document.getElementById("newVaccineForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const vaccineName = document.getElementById("vaccineName").value;
+            const vaccineDate = document.getElementById("vaccineDate").value;
+
+            const newVaccine = { name: vaccineName, date: vaccineDate };
+            saveVaccine(newVaccine);
+            loadVaccinationTable();
+            toggleVaccinationForm();
+        });
+
+        // Função para salvar vacina no localStorage
+        function saveVaccine(vaccine) {
+            let vaccines = JSON.parse(localStorage.getItem("vaccines")) || [];
+            vaccines.push(vaccine);
+            localStorage.setItem("vaccines", JSON.stringify(vaccines));
+        }
+
+        // Função para editar vacina
+        function editVaccine(index) {
+            const vaccines = JSON.parse(localStorage.getItem("vaccines"));
+            const vaccine = vaccines[index];
+
+            document.getElementById("vaccineName").value = vaccine.name;
+            document.getElementById("vaccineDate").value = vaccine.date;
+
+            deleteVaccine(index);
+            toggleVaccinationForm();
+        }
+
+        // Função para excluir vacina
+        function deleteVaccine(index) {
+            let vaccines = JSON.parse(localStorage.getItem("vaccines"));
+            vaccines.splice(index, 1);
+            localStorage.setItem("vaccines", JSON.stringify(vaccines));
+            loadVaccinationTable();
+        }
+    </script>
+
+    <!-- Link para JS do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #petForm {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .card {
+            width: 18rem;
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .pet-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .form-label {
+            font-size: 0.9rem;
+        }
+        .form-control, .form-select {
+            font-size: 0.85rem;
+            padding: 10px;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: #fff;
+        }
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Cadastro de Pets</h1>
+
+        <!-- Botão para abrir o formulário -->
+        <div class="text-center mb-4">
+            <button id="toggleFormBtn" class="btn btn-primary">Cadastrar Pet</button>
+        </div>
+
+        <!-- Formulário de cadastro de pets -->
+        <div id="petForm" class="border p-4 bg-light rounded">
+            <form id="cadastroPet">
+                <div class="mb-3">
+                    <label for="nomePet" class="form-label">Nome do Pet</label>
+                    <input type="text" class="form-control" id="nomePet" placeholder="Nome do pet" required>
+                </div>
+                <div class="mb-3">
+                    <label for="racaPet" class="form-label">Raça</label>
+                    <input type="text" class="form-control" id="racaPet" placeholder="Raça do pet" required>
+                </div>
+                <div class="mb-3">
+                    <label for="idadePet" class="form-label">Idade</label>
+                    <input type="number" class="form-control" id="idadePet" placeholder="Idade do pet" required>
+                </div>
+                <div class="mb-3">
+                    <label for="sexoPet" class="form-label">Sexo</label>
+                    <select class="form-select" id="sexoPet" required>
+                        <option value="">Selecione</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="historicoPet" class="form-label">Histórico Médico</label>
+                    <textarea class="form-control" id="historicoPet" rows="3" placeholder="Descreva o histórico médico do pet" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="imagemPet" class="form-label">Imagem do Pet (URL)</label>
+                    <input type="url" class="form-control" id="imagemPet" placeholder="Cole o link da imagem do pet" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Cadastrar Pet</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Grid de cards -->
+        <div id="petGrid" class="pet-grid"></div>
+    </div>
+
+    <script>
+        // Alternar exibição do formulário de cadastro
+        const toggleFormBtn = document.getElementById('toggleFormBtn');
+        const petForm = document.getElementById('petForm');
+        toggleFormBtn.addEventListener('click', () => {
+            petForm.style.display = petForm.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Função para criar um novo card de pet
+        const petGrid = document.getElementById('petGrid');
+        const form = document.getElementById('cadastroPet');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            // Coletando valores do formulário
+            const nomePet = document.getElementById('nomePet').value;
+            const racaPet = document.getElementById('racaPet').value;
+            const idadePet = document.getElementById('idadePet').value;
+            const sexoPet = document.getElementById('sexoPet').value;
+            const historicoPet = document.getElementById('historicoPet').value;
+            const imagemPet = document.getElementById('imagemPet').value;
+
+            // Criando um novo card de pet
+            const cardHtml = `
+                <div class="card">
+                    <img src="${imagemPet}" class="card-img-top" alt="Imagem do ${nomePet}">
+                    <div class="card-body">
+                        <h5 class="card-title">${nomePet}</h5>
+                        <p class="card-text"><strong>Raça:</strong> ${racaPet}</p>
+                        <p class="card-text"><strong>Idade:</strong> ${idadePet} anos</p>
+                        <p class="card-text"><strong>Sexo:</strong> ${sexoPet}</p>
+                        <p class="card-text"><strong>Histórico Médico:</strong> ${historicoPet}</p>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-edit">Editar</button>
+                            <button class="btn btn-delete">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Adicionando o novo card ao grid
+            petGrid.innerHTML += cardHtml;
+
+            // Limpar o formulário após o cadastro
+            form.reset();
+            petForm.style.display = 'none';
+
+            // Adicionar funcionalidade de exclusão e edição
+            addCardActions();
+        });
+
+        // Função para adicionar ações aos botões de editar e excluir
+        function addCardActions() {
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+            const editButtons = document.querySelectorAll('.btn-edit');
+
+            deleteButtons.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.card');
+                    card.remove(); // Remove o card correspondente
+                });
+            });
+
+            editButtons.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.card');
+                    // Preencher o formulário com as informações do card para edição
+                    document.getElementById('nomePet').value = card.querySelector('.card-title').textContent;
+                    document.getElementById('racaPet').value = card.querySelectorAll('.card-text')[0].textContent.split(': ')[1];
+                    document.getElementById('idadePet').value = card.querySelectorAll('.card-text')[1].textContent.split(' ')[0];
+                    document.getElementById('sexoPet').value = card.querySelectorAll('.card-text')[2].textContent.split(': ')[1];
+                    document.getElementById('historicoPet').value = card.querySelectorAll('.card-text')[3].textContent.split(': ')[1];
+                    document.getElementById('imagemPet').value = card.querySelector('.card-img-top').src;
+
+                    // Mostrar o formulário novamente para edição
+                    petForm.style.display = 'block';
+
+                    // Remover o card antigo
+                    card.remove();
+                });
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

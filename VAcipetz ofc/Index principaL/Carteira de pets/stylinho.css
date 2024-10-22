@@ -1,0 +1,386 @@
+/* Cores e fontes baseadas no design */
+:root {
+    --primary-color: #ea5c15; /* cor primária para cabeçalhos e botões */
+    --secondary-color: #f4f7fa; /* cor secundária para o fundo das células do calendário */
+    --highlight-color: #294293; /* cor para destacar o dia atual ou eventos selecionados */
+    --text-color: #333; /* cor do texto padrão */
+    --text-light: #ffffff; /* cor do texto claro */
+    --event-color: #f6ff00; /* cor do evento */
+    --cell-background: #fff;
+    --text-previous-month: #ccc;
+    --background-modal:  #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* ...outros estilos básicos... */
+
+
+.container {
+    padding: 0 20px; /* Adiciona um espaçamento de 20px nas laterais */
+    max-width: 1200px; /* Define uma largura máxima se desejar */
+    margin: 0 auto; /* Centraliza o main se houver uma largura máxima definida */
+}
+
+
+.theme-toggle {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+/* Layout principal */
+section {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Botões de navegação do calendário */
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 10px;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ...estilos para main, aside... */
+
+
+/* Estilos do calendário */
+
+.calendar-content {
+    display: flex;
+    
+}
+
+.calendar {
+
+    width: 75%;
+
+}
+
+.calendar-week {
+    display: flex;
+    padding-inline-start: 0;
+    
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Cria 7 colunas */
+    grid-gap: 5px; /* Espaçamento entre as células */
+}
+
+
+
+#calendar-days {
+    
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Cria 7 colunas */
+    grid-gap: 5px; /* Espaçamento entre as células */
+}
+
+.calendar-cell {
+    background-color: var(--cell-background);
+    border: 1px solid #ddd;
+    min-height: 100px;
+    padding: 5px;
+    transition: background-color 0.3s; /* Adiciona uma transição suave para o background-color */
+}
+
+.calendar-cell:not(.previous-month):hover {
+    cursor: pointer;
+}
+
+.calendar-cell.flash {
+    background-color: var(--event-color);
+}
+
+.calendar-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 1em;
+}
+
+
+.cell-event {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-size: 0.75em;
+    white-space: nowrap;
+}
+
+.cell-events-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    margin-top: 4px;
+    color:#fff;
+    gap: 4px;
+}
+
+
+/* Estilo para o dia atual */
+.current-day {
+    background-color: var(--highlight-color); /* Cor cor para destacar o dia atual */
+    color: var(--text-light); /* Cor do texto claro */
+}
+
+
+/* Estilo para os dias do mês anterior */
+.previous-month {
+    color: var(--text-previous-month); /* Cinza claro */
+}
+
+
+
+/* aside */
+
+aside {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Isso centralizará os filhos do aside horizontalmente */
+    padding: 20px; /* Espaçamento interno para não grudar nas bordas */
+    /* Outros estilos que você já tenha */
+}
+
+/* .event-delete-button {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.event-delete-button:hover {
+    color: darkred;
+} */
+
+
+.aside-title {
+    text-align: center;
+}
+
+.action-button {
+
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+.aside-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; /* Espaço entre os eventos */
+}
+
+.event {
+    margin-bottom: 0;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    flex: 0 1 auto; /* Isso permite que o evento encolha se necessário, mas não cresça */
+    
+}
+
+
+.event-delete-button {
+    float: right;
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+}
+
+.event-none {
+    background-color: grey;
+}
+
+.event-personal {
+    background-color: black;
+}
+
+.event-work {
+    background-color: red;
+}
+
+.event-family {
+    background-color: rgb(255, 123, 0);
+}
+
+.event-study {
+    background-color: purple;
+}
+
+.event-leisure {
+    background-color: green;
+}
+
+.event-info h4 {
+    margin: 0;
+}
+
+.event-info p {
+    margin: 5px 0;
+}
+
+
+/* Fundo do modal */
+.modal-background {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    z-index: 1; /* Coloca o fundo acima dos outros elementos, mas abaixo do modal */
+}
+
+/* Estilização do Pop-up de Eventos */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:var(--background-modal);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Coloca o modal acima de outros elementos */
+    width: 400px; /* Largura fixa, ajuste conforme necessário */
+    padding: 20px;
+    border-radius: 5px;
+    max-height: 80%; /* Define uma altura máxima para evitar que o modal seja muito longo */
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical se o conteúdo exceder a altura máxima */
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 15px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-modal {
+    display: block;
+    margin-top: 8px;
+}
+
+
+.close-button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: red;
+    text-align: end;
+    width: 100%;
+    
+}
+
+
+
+/* Botões e campos de formulário */
+
+/* Estilização dos campos de formulário no modal */
+
+#event-form input[type="text"],
+#event-form input[type="date"],
+#event-form input[type="time"],
+#event-form textarea {
+    width: calc(100% - 20px); /* Subtrai o padding dos lados */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
+    
+}
+
+#event-form textarea {
+    height: 100px; /* Altura fixa para a área de texto */
+}
+
+
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: var(--highlight-color);
+}
+
+
+
+
+/* ... */
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #calendar,
+    aside {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .calendar-content {
+        flex-direction: column;
+    }
+
+    .calendar, aside {
+        width: 100%;
+    }
+}

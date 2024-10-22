@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Card e Menu Responsivo</title>
+
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link para fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            text-align: center;
+            background-color: #ff9932;
+            font-weight: 600;
+            color: #ffffff;
+            padding: 20px;
+            font-size: 28px;
+            animation: bannerAnimation 1s ease-in-out infinite;
+        }
+
+        @keyframes bannerAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand img {
+            width: 150px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111111 !important;
+            margin-right: 15px;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dropdown-menu {
+            min-width: 160px;
+            right: 0;
+            left: auto;
+        }
+
+        #sidebar {
+            position: fixed;
+            right: -200px;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: rgba(69, 65, 62, 0.8);
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        #sidebar.active {
+            right: 0;
+        }
+        #sidebar ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #sidebar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        .open-menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff9932;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        #sidebar ul li a:hover {
+            background-color: #ff9932;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            margin: 20px;
+            width: 300px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #cardForm {
+            display: none;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            #sidebar.active {
+                right: 0;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="banner">
+            Seu pet protegido, você tranquilo!
+        </div>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="vacipets.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="indexx.html.HTML">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="lembrete/lembra.html">Lembrete</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Carteira de pets/pet-cadastro.html">Carteira</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">Localização &amp; Contato</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="profile-pic dropdown-toggle" id="profileMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://via.placeholder.com/40" alt="Foto de Perfil" id="userProfilePic">
+                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="profileMenu">
+                        <li><a class="dropdown-item" href="#" onclick="editProfile()">Editar Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                    </ul>
+                    <input type="file" id="profilePicInput" style="display:none" accept="image/*" onchange="previewProfilePic(event)">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu lateral -->
+    <div id="sidebar">
+      <ul>
+          <li><a href="#" onclick="toggleCardForm()">Novo Card</a></li>
+          <li><a href="#" onclick="showMyPets()">Meus Pets</a></li>
+      </ul>
+  </div>
+
+    <!-- Conteúdo principal -->
+    <div id="content">
+        <button class="open-menu-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+        <div class="container">
+            <!-- Formulário de cadastro de card -->
+            <div id="cardForm">
+                <h2 class="text-center mt-4">Cadastrar Novo Card</h2>
+                <form id="newCardForm">
+                    <div class="mb-3">
+                        <label for="petName" class="form-label">Nome do Pet</label>
+                        <input type="text" class="form-control" id="petName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petBreed" class="form-label">Raça</label>
+                        <input type="text" class="form-control" id="petBreed" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petAge" class="form-label">Idade</label>
+                        <input type="number" class="form-control" id="petAge" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petGender" class="form-label">Sexo</label>
+                        <select class="form-select" id="petGender" required>
+                            <option value="Macho">Macho</option>
+                            <option value="Fêmea">Fêmea</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petHistory" class="form-label">Histórico Médico</label>
+                        <textarea class="form-control" id="petHistory" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petImage" class="form-label">Imagem do Pet</label>
+                        <input type="file" class="form-control" id="petImage" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
+            </div>
+
+            <!-- Container de cards -->
+            <div class="card-container" id="cardContainer"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Função para alternar o menu lateral
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+
+        // Exibir ou ocultar o formulário de cadastro de card
+        function toggleCardForm() {
+            const form = document.getElementById("cardForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        // Função para mostrar os pets cadastrados
+        function showMyPets() {
+            document.getElementById("cardForm").style.display = "none";
+            loadCards();
+        }
+
+        // Função para editar o perfil (imagem e nome)
+        function editProfile() {
+            document.getElementById("profilePicInput").click();
+        }
+
+        function previewProfilePic(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const profilePic = document.getElementById("userProfilePic");
+                profilePic.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        // Função para salvar e carregar os cards
+        document.getElementById("newCardForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const petName = document.getElementById("petName").value;
+            const petBreed = document.getElementById("petBreed").value;
+            const petAge = document.getElementById("petAge").value;
+            const petGender = document.getElementById("petGender").value;
+            const petHistory = document.getElementById("petHistory").value;
+            const petImageInput = document.getElementById("petImage");
+
+            const reader = new FileReader();
+            reader.onload = function () {
+                const newCard = {
+                    petName,
+                    petBreed,
+                    petAge,
+                    petGender,
+                    petHistory,
+                    petImage: reader.result
+                };
+
+                saveCard(newCard);
+                loadCards();
+                toggleCardForm();
+            };
+            reader.readAsDataURL(petImageInput.files[0]);
+        });
+
+        function saveCard(card) {
+            let cards = JSON.parse(localStorage.getItem("cards")) || [];
+            cards.push(card);
+            localStorage.setItem("cards", JSON.stringify(cards));
+        }
+
+        function loadCards() {
+            const cards = JSON.parse(localStorage.getItem("cards")) || [];
+            const cardContainer = document.getElementById("cardContainer");
+            cardContainer.innerHTML = "";
+
+            cards.forEach((card, index) => {
+                const cardElement = document.createElement("div");
+                cardElement.classList.add("card");
+                cardElement.innerHTML = `
+                    <img src="${card.petImage}" alt="Imagem do Pet">
+                    <div class="card-body">
+                        <h5 class="card-title">${card.petName}</h5>
+                        <p class="card-text">Raça: ${card.petBreed}</p>
+                        <p class="card-text">Idade: ${card.petAge}</p>
+                        <p class="card-text">Sexo: ${card.petGender}</p>
+                        <p class="card-text">Histórico Médico: ${card.petHistory}</p>
+                        <div class="card-buttons">
+                            <button class="btn btn-warning" onclick="editCard(${index})">Editar</button>
+                            <button class="btn btn-danger" onclick="deleteCard(${index})">Excluir</button>
+                        </div>
+                    </div>
+               `;
+                cardElement.addEventListener("click", function() {
+                    localStorage.setItem("selectedPet", JSON.stringify(card));
+                    window.location.href = "PERFILLLL.HTML"; // Redireciona para a página de perfil
+                });
+                cardContainer.appendChild(cardElement);
+            });
+        }
+
+        // Função para editar card
+        function editCard(index) {
+            const cards = JSON.parse(localStorage.getItem("cards"));
+            const card = cards[index];
+
+            document.getElementById("petName").value = card.petName;
+            document.getElementById("petBreed").value = card.petBreed;
+            document.getElementById("petAge").value = card.petAge;
+            document.getElementById("petGender").value = card.petGender;
+            document.getElementById("petHistory").value = card.petHistory;
+
+            toggleCardForm();
+
+            deleteCard(index); // Remove o card atual para atualizar com as novas informações
+        }
+
+        // Função para excluir card
+        function deleteCard(index) {
+            let cards = JSON.parse(localStorage.getItem("cards"));
+            cards.splice(index, 1);
+            localStorage.setItem("cards", JSON.stringify(cards));
+            loadCards();
+        }
+
+        // Carregar cards ao carregar a página
+        window.onload = function () {
+            loadCards();
+        };
+    </script>
+
+    <!-- Link para JS do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

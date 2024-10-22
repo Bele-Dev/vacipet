@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacina menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/variables.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/link.css">
+    <link rel="stylesheet" href="../style/vac style.css">
+    <link rel="stylesheet" href="../style/component/nav-tabs.css">
+    
+    <link rel="stylesheet" href="../style/pets/pet-edicao.css">
+    <script type="text/javascript" src="pet-edicao.js"></script>
+    
+    <link rel="stylesheet" href="../style/component/comp-input-img.css">
+    <script type="text/javascript" src="../component/comp-input-img.js"></script>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem;
+}
+
+.info-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h2 {
+    color: #4CAF50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 0.5rem 0;
+}
+
+#saiba-mais-btn {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.8rem 1.5rem;
+    background-color: #ff813d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saiba-mais-btn:hover {
+    background-color: #ff842b;
+}
+
+.hidden {
+    display: none;
+}
+
+#saiba-mais-section {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+<body>
+    <header>
+            <img src="imagens/bg1.png" alt="header" class="header" >
+            <h1>Saiba mais?</h1>
+            
+    </header>
+    
+   
+    <section class="info-container">
+        <div class="info-card">
+            <h2>Vacinas para Gatos</h2>
+            <p>
+                As vacinas para gatos são essenciais para proteger os felinos contra doenças infecciosas graves. As principais vacinas incluem:
+            </p>
+            <ul>
+                <li><strong>V3:</strong> Protege contra Rinotraqueíte, Calicivirose e Panleucopenia.</li>
+                <li><strong>V4:</strong> Inclui proteção contra Clamidiose.</li>
+                <li><strong>V5:</strong> Protege também contra Leucemia Felina.</li>
+                <li><strong>Antirrábica:</strong> Previne a raiva, que pode ser transmitida aos humanos.</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h2>Vacinas para Cachorros</h2>
+            <p>
+                Para os cachorros, as vacinas são fundamentais para manter a saúde e evitar doenças sérias. Entre as principais vacinas, destacam-se:
+            </p>
+            <ul>
+                <li><strong>V8 e V10:</strong> Protegem contra Cinomose, Parvovirose, Hepatite, Adenovírus, Parainfluenza e Leptospirose.</li>
+                <li><strong>Antirrábica:</strong> Vacina contra a raiva, essencial para todos os cães.</li>
+                <li><strong>Gripe Canina:</strong> Protege contra o vírus da Influenza Canina.</li>
+                <li><strong>Leishmaniose:</strong> Em áreas endêmicas, protege contra essa doença grave.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="saiba-mais-section" class="hidden">
+        <h2>Importância da Vacinação</h2>
+        <p>
+            A vacinação regular dos pets é fundamental para garantir a saúde deles e de sua família. Ela previne doenças que podem ser fatais ou muito difíceis de tratar. Siga sempre as orientações do veterinário para manter a carteira de vacinação do seu pet em dia.
+        </p>
+    </section>
+
+    <script src="script.js"></script>
+        <nav class="comp-tabs">
+            <span class="tab-item left" onclick="onBtnVoltarClick()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </span>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notificação de Vacinação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .notification-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .notification-box {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .notification-box h5 {
+            margin-bottom: 15px;
+        }
+
+        .notification-box input {
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            color: red;
+            font-size: 20px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de Notificação -->
+    <div class="notification-button">
+        <button id="notifyBtn" class="btn btn-warning">Notificações</button>
+    </div>
+
+    <!-- Caixa de Notificação -->
+    <div id="notificationBox" class="notification-box">
+        <span class="close-btn">&times;</span>
+        <h5>Lembrete de Vacinação</h5>
+        <form id="notificationForm">
+            <div class="mb-3">
+                <label for="petName" class="form-label">Nome do Pet</label>
+                <input type="text" id="petName" class="form-control" placeholder="Digite o nome do pet" required>
+            </div>
+            <div class="mb-3">
+                <label for="vaccineDate" class="form-label">Data da Próxima Vacina</label>
+                <input type="date" id="vaccineDate" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="userEmail" class="form-label">Seu E-mail</label>
+                <input type="email" id="userEmail" class="form-control" placeholder="Digite seu e-mail" required>
+            </div>
+            <button type="submit" class="btn btn-success">Configurar Alerta</button>
+        </form>
+    </div>
+
+    <script>
+        // Mostrar/Ocultar a caixa de notificação
+        document.getElementById('notifyBtn').addEventListener('click', function() {
+            const notificationBox = document.getElementById('notificationBox');
+            notificationBox.style.display = notificationBox.style.display === 'none' || notificationBox.style.display === '' ? 'block' : 'none';
+        });
+
+        // Fechar a caixa de notificação
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('notificationBox').style.display = 'none';
+        });
+
+        // Enviar dados do formulário via AJAX
+        document.getElementById('notificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const petName = document.getElementById('petName').value;
+            const vaccineDate = document.getElementById('vaccineDate').value;
+            const userEmail = document.getElementById('userEmail').value;
+
+            fetch('/send-notification', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ petName, vaccineDate, userEmail }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Notificação configurada com sucesso!');
+                document.getElementById('notificationBox').style.display = 'none';
+            })
+            .catch((error) => {
+                alert('Erro ao configurar notificação');
+                console.error('Erro:', error);
+            });
+        });
+        const express = require('express');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+const PORT = 3000;
+
+// Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+
+// Configuração do Nodemailer (usando Gmail como exemplo)
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'seuemail@gmail.com',
+        pass: 'suasenha'
+    }
+});
+
+// Rota para configurar o alerta
+app.post('/send-notification', (req, res) => {
+    const { petName, vaccineDate, userEmail } = req.body;
+
+    const mailOptions = {
+        from: 'seuemail@gmail.com',
+        to: userEmail,
+        subject: 'Lembrete de Vacinação do seu Pet',
+        text: `Olá! Aqui está o lembrete da vacinação do seu pet, ${petName}. A próxima vacina está agendada para o dia ${vaccineDate}. Não se esqueça!`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            res.status(500).json({ error: 'Erro ao enviar e-mail' });
+        } else {
+            console.log('E-mail enviado: ' + info.response);
+            res.status(200).json({ message: 'E-mail enviado com sucesso!' });
+        }
+    });
+});
+
+// Inicializar o servidor
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

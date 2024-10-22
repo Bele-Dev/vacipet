@@ -1,0 +1,28 @@
+.cadastro-page {}
+
+.cadastro-page .titulo-tela {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.cadastro-page form {
+    margin-bottom: 30px;
+}
+.cadastro-page form input {
+    display: block;
+    margin: 20px 0;
+}
+
+.cadastro-page form input[name='senha'] {
+    margin: 50px 0;
+}
+
+.cadastro-page .btn-cadastrar {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.cadastro-page .lnk-login {
+    display: block;
+    text-align: center;
+}
